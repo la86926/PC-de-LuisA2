@@ -953,7 +953,7 @@ footer a{color:var(--muted)}
 <section class="view" id="v-guide">
  <div class="reading">
   <h1>Cómo usar este entrenador</h1>
-  <p class="lead">Mil ejercicios posicionales de <em>The Woodpecker Method 2</em>, listos para resolver sobre un tablero interactivo y con la notación visible adaptada al español.</p>
+  <p class="lead">Mil ejercicios posicionales de <em>The WPMethod 2</em>, listos para resolver sobre un tablero interactivo y con la notación visible adaptada al español.</p>
 
   <h2><span class="k">01</span> Resuelve sobre el tablero</h2>
   <p>En cada ejercicio te indicamos quién mueve (<b>Juegan: Blancas</b> o <b>Negras</b>). Toca una de tus piezas: se iluminan sus casillas legales. Arrástrala o toca la casilla de destino para jugar. Si tu jugada coincide con la línea principal del libro, la posición avanza y el rival responde solo. Si fallas, la pieza vuelve a su sitio y te avisa.</p>
@@ -1023,7 +1023,7 @@ footer a{color:var(--muted)}
 </section>
 
 <footer>
-  Material: <em>The Woodpecker Method 2</em> · Axel Smith. Entrenador interactivo en español ·
+  Material: <em>The wp Method 2</em> · AS. Entrenador interactivo en español ·
   motor de legalidad <a href="https://github.com/jhlywa/chess.js">chess.js</a>. Sitio hecho por LA.
 </footer>
 
@@ -4391,19 +4391,19 @@ const headLen=Math.max(5, size*0.18);
     // % NUEVO: dentro del APK, guardo la tarjeta en la galería con el puente
     if(window.PuenteAndroid && PuenteAndroid.guardarImagen){
       const b64=cv.toDataURL('image/png').split(',')[1];
-     PuenteAndroid.guardarImagen(b64,'logro-woodpecker.png');
+     PuenteAndroid.guardarImagen(b64,'logro-wp.png');
       avisarVentana('🏆 Tarjeta de logro guardada.');   // % CAMBIO
       
       return;
     }
     const blob=await new Promise((res,rej)=>cv.toBlob(b=>b?res(b):rej(new Error('sin blob')),'image/png'));
-    const archivo=new File([blob],'logro-woodpecker.png',{type:'image/png'});
+    const archivo=new File([blob],'logro-wp.png',{type:'image/png'});
 
     
     if(navigator.share && (!navigator.canShare || navigator.canShare({files:[archivo]}))){
       await navigator.share({files:[archivo],title:'Mi progreso',text:'Mi progreso en El Método PC ♟️'});
     }else{
-      descargarBlob(blob,'logro-woodpecker.png');
+      descargarBlob(blob,'logro-wp.png');
       setStatus('ok','Tarjeta descargada, lista para compartir.');
     }
   }catch(err){
@@ -4692,7 +4692,7 @@ async function crearBlobTableroCompartible(){
 async function compartirTablero(){
   try{
    const blob=await crearBlobTableroCompartible();
-    const nombre='woodpecker-ejercicio-'+curr().n+'.png';   // CAMBIO
+    const nombre='wp-ejercicio-'+curr().n+'.png';   // CAMBIO
     // % NUEVO: dentro del APK, guardo la imagen en la galería con el puente
     if(window.PuenteAndroid && PuenteAndroid.guardarImagen){
       const lector=new FileReader();
